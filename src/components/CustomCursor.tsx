@@ -7,7 +7,7 @@ export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Only run on devices with fine pointer (mouse/trackpad)
+    // Only run on desktop devices with fine pointer (mouse/trackpad)
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
     let mouseX = -100;
@@ -20,7 +20,7 @@ export default function CustomCursor() {
       mouseX = e.clientX;
       mouseY = e.clientY;
 
-      // Update sharp dot position immediately with 0 delay
+      // Update sharp dot position immediately (zero latency)
       if (dotRef.current) {
         dotRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
       }
@@ -28,11 +28,11 @@ export default function CustomCursor() {
 
     // Smooth lerp loop for the outer follower ring
     const render = () => {
-      currentX += (mouseX - currentX) * 0.22;
-      currentY += (mouseY - currentY) * 0.22;
+      currentX += (mouseX - currentX) * 0.25;
+      currentY += (mouseY - currentY) * 0.25;
 
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${currentX - 16}px, ${currentY - 16}px, 0)`;
+        cursorRef.current.style.transform = `translate3d(${currentX - 18}px, ${currentY - 18}px, 0)`;
       }
 
       rafId = requestAnimationFrame(render);
@@ -49,17 +49,17 @@ export default function CustomCursor() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden hidden md:block">
-      {/* Clean Outer Follower Ring - NO backdrop blur, NO zoom distortion */}
+      {/* Clean, Crystal-Clear Outer Follower Ring (Thin Sharp Glowing Border, NO blur) */}
       <div
         ref={cursorRef}
-        className="absolute top-0 left-0 w-8 h-8 rounded-full border border-purple-400/50 bg-purple-500/5 pointer-events-none will-change-transform"
+        className="absolute top-0 left-0 w-9 h-9 rounded-full border-2 border-purple-400/90 bg-purple-500/10 shadow-[0_0_15px_rgba(168,85,247,0.4)] pointer-events-none will-change-transform transition-all duration-150"
         style={{ transform: "translate3d(-100px, -100px, 0)" }}
       />
 
-      {/* Sharp Inner Dot */}
+      {/* Sharp Inner Precision Dot */}
       <div
         ref={dotRef}
-        className="absolute top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] pointer-events-none will-change-transform"
+        className="absolute top-0 left-0 w-2.5 h-2.5 -ml-1 -mt-1 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399] pointer-events-none will-change-transform"
         style={{ transform: "translate3d(-100px, -100px, 0)" }}
       />
     </div>

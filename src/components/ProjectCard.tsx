@@ -20,7 +20,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const [showArchitecture, setShowArchitecture] = useState(false);
   const cardRef = useRef<HTMLDivElement | null>(null);
 
-  // Direct DOM CSS variable update on mousemove for 60fps zero-lag performance
+  // Direct DOM CSS variable update for relative cursor spotlight
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
@@ -39,13 +39,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
       onMouseMove={handleMouseMove}
-      className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group border border-zinc-800/80 cursor-pointer"
+      className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group border border-zinc-800/80 cursor-pointer transform hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-purple-950/40"
     >
-      {/* Crisp Spotlight Glow - NO Background Blur Distortion */}
+      {/* Crystal-Clear Spotlight Highlight - Sharp Border Glow */}
       <div
         className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
         style={{
-          background: `radial-gradient(350px circle at var(--mx, 50%) var(--my, 50%), rgba(168, 85, 247, 0.12), transparent 75%)`,
+          background: `radial-gradient(350px circle at var(--mx, 50%) var(--my, 50%), rgba(168, 85, 247, 0.15), transparent 75%)`,
         }}
       />
 
