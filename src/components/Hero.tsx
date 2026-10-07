@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Award,
@@ -11,13 +11,17 @@ import {
   ShieldCheck,
   Code2,
   Terminal,
-  Cpu,
   ChevronDown,
+  Camera,
+  Box,
 } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 import SplineCanvas from "./SplineCanvas";
+import HeroPhoto from "./HeroPhoto";
 
 export default function Hero() {
+  const [viewMode, setViewMode] = useState<"photo" | "spline">("photo");
+
   return (
     <section id="about" className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
       {/* Background Radial Purple Glows */}
@@ -115,29 +119,45 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: 3D Spline Canvas Container */}
+          {/* Right Column: 3D Visual & View Switcher */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-5 relative"
           >
-            {/* Background Radial Purple Glow */}
-            <div className="absolute -inset-4 bg-purple-600/20 rounded-3xl blur-[120px] pointer-events-none" />
-            <div className="relative">
-              <SplineCanvas sceneUrl="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
-
-              {/* Floating Feature Badges around canvas */}
-              <div className="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md border border-zinc-800 text-[11px] font-mono text-emerald-300 flex items-center gap-1.5 shadow-lg">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Active Directory Enterprise</span>
-              </div>
-
-              <div className="absolute bottom-4 left-4 z-20 px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md border border-zinc-800 text-[11px] font-mono text-purple-300 flex items-center gap-1.5 shadow-lg">
-                <Code2 className="w-3.5 h-3.5 text-purple-400" />
-                <span>ASP.NET Core & C# Architect</span>
-              </div>
+            {/* Display Switcher Toggle */}
+            <div className="flex items-center justify-center gap-2 mb-4 bg-zinc-900/80 p-1.5 rounded-2xl border border-zinc-800 max-w-xs mx-auto">
+              <button
+                onClick={() => setViewMode("photo")}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
+                  viewMode === "photo"
+                    ? "bg-purple-600 text-white shadow-lg shadow-purple-900/30"
+                    : "text-zinc-400 hover:text-zinc-200"
+                }`}
+              >
+                <Camera className="w-3.5 h-3.5" />
+                <span>3D Photo Card</span>
+              </button>
+              <button
+                onClick={() => setViewMode("spline")}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
+                  viewMode === "spline"
+                    ? "bg-emerald-600 text-white shadow-lg shadow-emerald-900/30"
+                    : "text-zinc-400 hover:text-zinc-200"
+                }`}
+              >
+                <Box className="w-3.5 h-3.5" />
+                <span>Spline 3D Scene</span>
+              </button>
             </div>
+
+            {/* Render Selected View */}
+            {viewMode === "photo" ? (
+              <HeroPhoto imageSrc="/khush-profile.png" name="Khush Amin" />
+            ) : (
+              <SplineCanvas sceneUrl="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
+            )}
           </motion.div>
         </div>
 
