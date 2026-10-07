@@ -27,19 +27,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const tiltX = (y - centerY) / 30;
-    const tiltY = (centerX - x) / 30;
-
     cardRef.current.style.setProperty("--mx", `${x}px`);
     cardRef.current.style.setProperty("--my", `${y}px`);
-    cardRef.current.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-  };
-
-  const handleMouseLeave = () => {
-    if (!cardRef.current) return;
-    cardRef.current.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
   };
 
   return (
@@ -50,17 +39,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
       onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group border border-zinc-800/80 cursor-pointer will-change-transform"
-      style={{
-        transition: "transform 0.15s ease-out",
-      }}
+      className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group border border-zinc-800/80 cursor-pointer"
     >
-      {/* Interactive Cursor Spotlight Glow Effect */}
+      {/* Crisp Spotlight Glow - NO Background Blur Distortion */}
       <div
         className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
         style={{
-          background: `radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(168, 85, 247, 0.16), transparent 80%)`,
+          background: `radial-gradient(350px circle at var(--mx, 50%) var(--my, 50%), rgba(168, 85, 247, 0.12), transparent 75%)`,
         }}
       />
 
