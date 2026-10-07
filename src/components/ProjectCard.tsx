@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Project } from "@/types";
 import {
@@ -9,10 +9,6 @@ import {
   ChevronUp,
   Layers,
   CheckCircle2,
-  ExternalLink,
-  Code2,
-  Database,
-  ShieldAlert,
 } from "lucide-react";
 
 interface ProjectCardProps {
@@ -22,19 +18,73 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const [showArchitecture, setShowArchitecture] = useState(false);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+
+  // Dynamic Cursor 3D Tilt State
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+  const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    setSpotlightPos({ x, y });
+
+    // Calculate 3D tilt angle
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const tiltX = (y - centerY) / 25;
+    const tiltY = (centerX - x) / 25;
+
+    setRotateX(tiltX);
+    setRotateY(tiltY);
+  };
+
+  const handleMouseLeave = () => {
+    setRotateX(0);
+    setRotateY(0);
+  };
 
   return (
     <motion.div
+      ref={cardRef}
       initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
-      className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group border border-zinc-800/80"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+        transition: "transform 0.15s ease-out",
+      }}
+      data-cursor-text="PROJECT"
+      className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group border border-zinc-800/80 cursor-pointer"
     >
-      {/* Background Accent Mesh */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-purple-900/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-purple-600/15 transition-all duration-500" />
+      {/* Interactive Cursor Spotlight Glow Effect */}
+      <div
+        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+        style={{
+          background: `radial-gradient(400px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(168, 85, 247, 0.18), transparent 80%)`,
+        }}
+      />
+      
+      {/* Border Highlight Following Cursor */}
+      <div
+        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl border border-purple-500/40"
+        style={{
+          background: `radial-gradient(300px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(52, 211, 153, 0.25), transparent 70%)`,
+          maskImage: "linear-gradient(black, black) content-box, linear-gradient(black, black)",
+          WebkitMaskImage: "linear-gradient(black, black) content-box, linear-gradient(black, black)",
+          maskComposite: "exclude",
+          WebkitMaskComposite: "xor",
+        }}
+      />
 
-      <div>
+      <div className="relative z-10">
         {/* Top Header & Stat Badge */}
         <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
           <div>
@@ -87,7 +137,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         {project.architectureNotes && (
           <div className="mb-6 rounded-xl bg-zinc-950/80 border border-zinc-800/90 overflow-hidden">
             <button
-              onClick={() => setShowArchitecture(!showArchitecture)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowArchitecture(!showArchitecture);
+              }}
               className="w-full flex items-center justify-between p-3.5 text-xs font-mono font-medium text-zinc-300 hover:text-purple-300 hover:bg-zinc-900/60 transition-colors"
             >
               <div className="flex items-center gap-2">
@@ -121,7 +174,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       </div>
 
       {/* Bottom Tech Badges Footer */}
-      <div className="pt-4 border-t border-zinc-800/80 flex flex-wrap items-center gap-2">
+      <div className="relative z-10 pt-4 border-t border-zinc-800/80 flex flex-wrap items-center gap-2">
         {project.badges.map((badge) => (
           <span
             key={badge}
