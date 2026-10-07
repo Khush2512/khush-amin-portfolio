@@ -20,32 +20,26 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const [showArchitecture, setShowArchitecture] = useState(false);
   const cardRef = useRef<HTMLDivElement | null>(null);
 
-  // Dynamic Cursor 3D Tilt State
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
-  const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
-
+  // Direct DOM CSS variable update on mousemove for 60fps zero-lag performance
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    setSpotlightPos({ x, y });
-
-    // Calculate 3D tilt angle
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const tiltX = (y - centerY) / 25;
-    const tiltY = (centerX - x) / 25;
+    const tiltX = (y - centerY) / 30;
+    const tiltY = (centerX - x) / 30;
 
-    setRotateX(tiltX);
-    setRotateY(tiltY);
+    cardRef.current.style.setProperty("--mx", `${x}px`);
+    cardRef.current.style.setProperty("--my", `${y}px`);
+    cardRef.current.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
   };
 
   const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
+    if (!cardRef.current) return;
+    cardRef.current.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
   };
 
   return (
@@ -57,30 +51,16 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       transition={{ duration: 0.5, delay: index * 0.15 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group border border-zinc-800/80 cursor-pointer will-change-transform"
       style={{
-        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
         transition: "transform 0.15s ease-out",
       }}
-      data-cursor-text="PROJECT"
-      className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group border border-zinc-800/80 cursor-pointer"
     >
       {/* Interactive Cursor Spotlight Glow Effect */}
       <div
         className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
         style={{
-          background: `radial-gradient(400px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(168, 85, 247, 0.18), transparent 80%)`,
-        }}
-      />
-      
-      {/* Border Highlight Following Cursor */}
-      <div
-        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl border border-purple-500/40"
-        style={{
-          background: `radial-gradient(300px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(52, 211, 153, 0.25), transparent 70%)`,
-          maskImage: "linear-gradient(black, black) content-box, linear-gradient(black, black)",
-          WebkitMaskImage: "linear-gradient(black, black) content-box, linear-gradient(black, black)",
-          maskComposite: "exclude",
-          WebkitMaskComposite: "xor",
+          background: `radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(168, 85, 247, 0.16), transparent 80%)`,
         }}
       />
 
