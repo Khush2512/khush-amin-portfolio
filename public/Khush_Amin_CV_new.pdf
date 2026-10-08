@@ -1,34 +1,168 @@
 %PDF-1.4
-1 0 obj <>/ProcSet[/PDF/Text/ImageB/ImageC/ImageI] >>/MediaBox[ 0 0 612 792] /Contents 2 0 R >>
+%ÿÿÿÿ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<>/Length 350>>
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Length 2894 >>
 stream
 BT
 /F1 18 Tf
-50 720 Td
-(KHUSH AMIN - SOFTWARE ENGINEER & .NET SPECIALIST CV) Tj
-/F1 12 Tf
-0 -30 Td
-(First Class Honours Computer Science Graduate - De Montfort University 70% Average) Tj
-0 -20 Td
-(Target Roles: Graduate Software Engineer | Junior .NET Developer) Tj
-0 -20 Td
-(Email: khushpatel0344@gmail.com | Phone: +44 7733908167 | Location: Leicester, UK) Tj
-0 -30 Td
-(Core Competencies: C#, ASP.NET Core, SQL Server 3NF, Parameterized Queries, RBAC, REST APIs) Tj
-0 -20 Td
-(Academic Distinction: 82% Enterprise Staff Management Subsystem | 78% Capstone Project) Tj
+40 745 Td
+(KHUSH AMIN) Tj
+ET
+BT
+/F1 11 Tf
+40 728 Td
+(Graduate Software Engineer | Junior .NET Developer | Full-Stack Specialist) Tj
+ET
+BT
+/F2 9 Tf
+40 714 Td
+(Email: khushpatel0344@gmail.com | Phone: +44 7733908167 | Location: Leicester, UK | GitHub: github.com/Khush2512) Tj
+ET
+0.2 g
+40 704 532 1 re f
+BT
+/F1 11 Tf
+40 685 Td
+(PROFESSIONAL SUMMARY) Tj
+ET
+BT
+/F2 9.5 Tf
+40 669 Td
+(First-Class Honours Computer Science Graduate \(70% overall average\) from De Montfort University with dual Oracle Cloud certifications. Specialized in C#, ASP.NET Core MVC, SQL Server 3NF relational database design, parameterized query security, and Agile software engineering practices.) Tj
+ET
+BT
+/F1 11 Tf
+40 645 Td
+(ACADEMIC QUALIFICATIONS & HONORS) Tj
+ET
+0.3 g
+40 641 532 0.75 re f
+BT
+/F1 10 Tf
+50 625 Td
+(BSc \(Hons\) Computer Science  First Class Honours \(70% Overall Average\)) Tj
+/F2 9 Tf
+400 0 Td
+(De Montfort University, 2021 - 2024) Tj
+ET
+BT
+/F2 9 Tf
+60 611 Td
+(Graduated with 1st Class Honours. Module honors in Enterprise Software Engineering & Web Architecture.) Tj
+ET
+BT
+/F1 11 Tf
+40 586 Td
+(FEATURED ENGINEERING PROJECTS) Tj
+ET
+0.3 g
+40 582 532 0.75 re f
+BT
+/F1 10 Tf
+50 566 Td
+(Enterprise E-Commerce & Staff Management Subsystem \(C#, ASP.NET Core, SQL Server\)) Tj
+/F2 9 Tf
+400 0 Td
+(82% First Class Mark) Tj
+ET
+BT
+/F2 9 Tf
+60 552 Td
+(Architected Staff Management Subsystem within 5-person Agile team. Engineered 3NF SQL schemas and RBAC authorization.) Tj
+ET
+BT
+/F1 10 Tf
+50 537 Td
+(Full-Stack Software Capstone Development Project \(TypeScript, Node, REST APIs\)) Tj
+/F2 9 Tf
+400 0 Td
+(78% First Class Mark) Tj
+ET
+BT
+/F2 9 Tf
+60 523 Td
+(Scored 100% on Phase 1 specification. Built decoupled REST endpoints and robust integration test suites.) Tj
+ET
+BT
+/F1 10 Tf
+50 508 Td
+(Student Course Management Hub \(PHP PDO, MySQL, WCAG Accessibility\)) Tj
+/F2 9 Tf
+400 0 Td
+(First Class Mark) Tj
+ET
+BT
+/F2 9 Tf
+60 494 Td
+(Designed parameterized PDO queries, CSRF token defenses, and WCAG AA accessible user interface.) Tj
+ET
+BT
+/F1 11 Tf
+40 469 Td
+(TECHNICAL CORE COMPETENCIES) Tj
+ET
+0.3 g
+40 465 532 0.75 re f
+BT
+/F2 9.5 Tf
+50 449 Td
+("  Languages & Frameworks: C#, ASP.NET Core, TypeScript, JavaScript, React, Next.js, Node.js, PHP, HTML5/CSS3) Tj
+ET
+BT
+/F2 9.5 Tf
+50 434 Td
+("  Database & Security: Microsoft SQL Server, MySQL, 3NF Normalization, Parameterized Queries, RBAC, CSRF Defenses) Tj
+ET
+BT
+/F2 9.5 Tf
+50 419 Td
+("  Developer Tools: Git, GitHub, Visual Studio, VS Code, Postman, Jest, Azure DevOps, Agile Scrum methodology) Tj
+ET
+BT
+/F1 11 Tf
+40 394 Td
+(PROFESSIONAL CERTIFICATIONS) Tj
+ET
+0.3 g
+40 390 532 0.75 re f
+BT
+/F2 9.5 Tf
+50 374 Td
+("  Oracle Cloud Infrastructure 2024 Generative AI Certified Professional \(Oracle University\)) Tj
+ET
+BT
+/F2 9.5 Tf
+50 359 Td
+("  Oracle Cloud Data Management 2023 Certified Foundations Associate \(Oracle University\)) Tj
 ET
 endstream
 endobj
 xref
-0 3
+0 7
 0000000000 65535 f 
-0000000009 00000 n 
-0000000140 00000 n 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000257 00000 n 
+0000000332 00000 n 
+0000000402 00000 n 
 trailer
-<>/Size 3>>
+<< /Size 7 /Root 1 0 R >>
 startxref
-500
+3336
 %%EOF

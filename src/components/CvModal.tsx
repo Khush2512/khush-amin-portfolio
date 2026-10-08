@@ -157,16 +157,31 @@ export default function CvModal({ isOpen, onClose, defaultRole = "net" }: CvModa
           </div>
 
           {/* Footer Actions */}
-          <div className="flex items-center justify-end gap-3 p-6 border-t border-zinc-800/80 bg-zinc-900/40">
+          <div className="flex flex-wrap items-center justify-end gap-3 p-6 border-t border-zinc-800/80 bg-zinc-900/40">
             <button
               onClick={onClose}
               className="px-4 py-2.5 rounded-xl text-xs font-mono font-medium text-zinc-400 hover:text-white transition-colors"
             >
-              Cancel
+              Close
             </button>
+            
+            {/* View CV inline in browser */}
             <a
               href={downloadFile}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-semibold text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-500 transition-all shadow-md"
+            >
+              <FileText className="w-4 h-4 text-purple-400" />
+              <span>View CV in Browser</span>
+            </a>
+
+            {/* Direct Download PDF */}
+            <a
+              href={downloadFile}
+              download={activeTab === "net" ? "Khush_Amin_CV_Software_Engineer.pdf" : "Khush_Amin_CV_Cloud_Infrastructure.pdf"}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs font-bold text-white shadow-lg transition-all ${
                 activeTab === "net"
                   ? "bg-purple-600 hover:bg-purple-500 shadow-purple-900/40"
@@ -174,7 +189,7 @@ export default function CvModal({ isOpen, onClose, defaultRole = "net" }: CvModa
               }`}
             >
               <Download className="w-4 h-4" />
-              <span>Download {activeTab === "net" ? "Software Engineer CV" : "Cloud & Infrastructure CV"}</span>
+              <span>Download PDF</span>
             </a>
           </div>
         </motion.div>

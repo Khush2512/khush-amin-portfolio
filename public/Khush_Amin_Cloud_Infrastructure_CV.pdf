@@ -1,34 +1,159 @@
 %PDF-1.4
-1 0 obj <>/ProcSet[/PDF/Text/ImageB/ImageC/ImageI] >>/MediaBox[ 0 0 612 792] /Contents 2 0 R >>
+%ÿÿÿÿ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<>/Length 350>>
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Length 2809 >>
 stream
 BT
 /F1 18 Tf
-50 720 Td
-(KHUSH AMIN - CLOUD & INFRASTRUCTURE SPECIALIST CV) Tj
-/F1 12 Tf
-0 -30 Td
+40 745 Td
+(KHUSH AMIN) Tj
+ET
+BT
+/F1 11 Tf
+40 728 Td
+(Cloud & Infrastructure Specialist | Junior System Administrator | Oracle Cloud Certified) Tj
+ET
+BT
+/F2 9 Tf
+40 714 Td
+(Email: khushpatel0344@gmail.com | Phone: +44 7733908167 | Location: Leicester, UK | Portfolio: khush-amin-portfolio3d.vercel.app) Tj
+ET
+0.2 g
+40 704 532 1 re f
+BT
+/F1 11 Tf
+40 685 Td
+(PROFESSIONAL SUMMARY) Tj
+ET
+BT
+/F2 9.5 Tf
+40 669 Td
+(First-Class Honours Computer Science Graduate from De Montfort University holding dual Oracle Cloud certifications with 2 years of commercial IT infrastructure and sysadmin experience managing 50+ enterprise workstations, Active Directory policy provisioning, and customer-facing IT services.) Tj
+ET
+BT
+/F1 11 Tf
+40 645 Td
+(COMMERCIAL IT INFRASTRUCTURE EXPERIENCE) Tj
+ET
+0.3 g
+40 641 532 0.75 re f
+BT
+/F1 10 Tf
+50 625 Td
+(Junior System Administrator  TruSkills Solutions Pvt. Ltd.) Tj
+/F2 9 Tf
+400 0 Td
+(2021 - 2023 \(2 Years\)) Tj
+ET
+BT
+/F2 9 Tf
+60 611 Td
+(Administered 50+ Windows/Linux workstations. Provisioned Active Directory users, GPOs, and maintained 99%+ operational uptime.) Tj
+ET
+BT
+/F1 10 Tf
+50 596 Td
+(Commercial Operations Specialist  One Stop & Tesco Operations) Tj
+/F2 9 Tf
+400 0 Td
+(UK Commercial Experience) Tj
+ET
+BT
+/F2 9 Tf
+60 582 Td
+(Managed retail POS hardware, inventory databases, customer resolution, and network availability across shift operations.) Tj
+ET
+BT
+/F1 11 Tf
+40 557 Td
+(ORACLE CLOUD & INDUSTRY CERTIFICATIONS) Tj
+ET
+0.3 g
+40 553 532 0.75 re f
+BT
+/F1 10 Tf
+50 537 Td
 (Oracle Cloud Infrastructure 2024 Generative AI Certified Professional) Tj
-0 -20 Td
-(Target Roles: Cloud & Infrastructure Specialist | Junior System Administrator) Tj
-0 -20 Td
-(Email: khushpatel0344@gmail.com | Phone: +44 7733908167 | Location: Leicester, UK) Tj
-0 -30 Td
-(Commercial SysAdmin: TruSkills Solutions (2021-2023) - 50+ Workstations, Active Directory GPO) Tj
-0 -20 Td
-(Oracle Cloud Certifications: OCI Generative AI 2024 | OCI Data Management 2023) Tj
+/F2 9 Tf
+400 0 Td
+(Oracle University \(Verified Credential\)) Tj
+ET
+BT
+/F2 9 Tf
+60 523 Td
+(Certified expertise in OCI GenAI services, LLM deployment, vector embeddings, and cloud AI infrastructure architecture.) Tj
+ET
+BT
+/F1 10 Tf
+50 508 Td
+(Oracle Cloud Data Management 2023 Certified Foundations Associate) Tj
+/F2 9 Tf
+400 0 Td
+(Oracle University \(Verified Credential\)) Tj
+ET
+BT
+/F2 9 Tf
+60 494 Td
+(Certified in OCI Autonomous Database, Relational Data Lakes, automated backup strategies, and cloud security.) Tj
+ET
+BT
+/F1 11 Tf
+40 469 Td
+(EDUCATION & TECHNICAL SKILLSET) Tj
+ET
+0.3 g
+40 465 532 0.75 re f
+BT
+/F1 10 Tf
+50 449 Td
+(BSc \(Hons\) Computer Science  First Class Honours \(70% Average\)) Tj
+/F2 9 Tf
+400 0 Td
+(De Montfort University) Tj
+ET
+BT
+/F2 9 Tf
+60 435 Td
+(Focus on Enterprise Networks, Cloud Systems Architecture, Cybersecurity, and Relational Database Systems.) Tj
+ET
+BT
+/F2 9.5 Tf
+50 420 Td
+("  Infrastructure Tools: Active Directory, Group Policy \(GPO\), LAN/WAN Diagnostics, DNS/DHCP, Windows Server, Linux CLI) Tj
+ET
+BT
+/F2 9.5 Tf
+50 405 Td
+("  Cloud Platform Expertise: Oracle Cloud Infrastructure \(OCI\), Oracle Autonomous DB, Cloud Security Architecture, IAM) Tj
 ET
 endstream
 endobj
 xref
-0 3
+0 7
 0000000000 65535 f 
-0000000009 00000 n 
-0000000140 00000 n 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000257 00000 n 
+0000000332 00000 n 
+0000000402 00000 n 
 trailer
-<>/Size 3>>
+<< /Size 7 /Root 1 0 R >>
 startxref
-500
+3253
 %%EOF
