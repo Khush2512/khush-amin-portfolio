@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import {
   Award,
@@ -10,22 +10,19 @@ import {
   Phone,
   ShieldCheck,
   Code2,
+  Terminal,
+  Cpu,
   ChevronDown,
-  Camera,
-  Box,
+  Database,
+  CheckCircle2,
   Sparkles,
 } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
-import SplineCanvas from "./SplineCanvas";
-import HeroPhoto from "./HeroPhoto";
-import Tripo3DCanvas from "./Tripo3DCanvas";
 
 export default function Hero() {
-  const [viewMode, setViewMode] = useState<"tripo" | "photo" | "spline">("tripo");
-
   return (
     <section id="about" className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
-      {/* Background Radial Purple Glows */}
+      {/* Background Radial Purple & Emerald Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-purple-950/20 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-emerald-950/15 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
@@ -120,58 +117,94 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: Interactive 3D Model & View Switcher */}
+          {/* Right Column: High-Tech Code Terminal Dashboard */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-5 relative"
           >
-            {/* Display Switcher Toggle */}
-            <div className="flex items-center justify-center gap-1.5 mb-4 bg-zinc-900/90 p-1.5 rounded-2xl border border-zinc-800 max-w-sm mx-auto shadow-lg">
-              <button
-                onClick={() => setViewMode("tripo")}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
-                  viewMode === "tripo"
-                    ? "bg-purple-600 text-white shadow-lg shadow-purple-900/30"
-                    : "text-zinc-400 hover:text-zinc-200"
-                }`}
-              >
-                <Sparkles className="w-3.5 h-3.5 text-purple-300" />
-                <span>Tripo3D Model</span>
-              </button>
-              <button
-                onClick={() => setViewMode("photo")}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
-                  viewMode === "photo"
-                    ? "bg-emerald-600 text-white shadow-lg shadow-emerald-900/30"
-                    : "text-zinc-400 hover:text-zinc-200"
-                }`}
-              >
-                <Camera className="w-3.5 h-3.5" />
-                <span>Photo Card</span>
-              </button>
-              <button
-                onClick={() => setViewMode("spline")}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
-                  viewMode === "spline"
-                    ? "bg-indigo-600 text-white shadow-lg shadow-indigo-900/30"
-                    : "text-zinc-400 hover:text-zinc-200"
-                }`}
-              >
-                <Box className="w-3.5 h-3.5" />
-                <span>Spline Scene</span>
-              </button>
-            </div>
+            {/* Background Glow */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-purple-600/20 to-emerald-500/20 rounded-3xl blur-[90px] pointer-events-none" />
 
-            {/* Render Selected 3D View */}
-            {viewMode === "tripo" ? (
-              <Tripo3DCanvas modelUrl="https://studio.tripo3d.ai/3d-model/e45291e9-59e4-4bed-a46d-a9dc3718e650" />
-            ) : viewMode === "photo" ? (
-              <HeroPhoto imageSrc="/khush-profile.png" name="Khush Amin" />
-            ) : (
-              <SplineCanvas sceneUrl="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
-            )}
+            <div className="relative rounded-2xl bg-zinc-950 border-2 border-zinc-800 shadow-2xl overflow-hidden">
+              {/* Terminal Title Bar */}
+              <div className="flex items-center justify-between px-4 py-3 bg-zinc-900 border-b border-zinc-800">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  <span className="ml-2 font-mono text-xs text-zinc-400">khush-amin-sys.config</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>LIVE ARCHITECTURE</span>
+                </div>
+              </div>
+
+              {/* Terminal Body */}
+              <div className="p-6 font-mono space-y-6 text-xs bg-zinc-950/90">
+                {/* System Diagnostics Header */}
+                <div className="p-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800 space-y-1">
+                  <div className="text-purple-400 font-bold">$ khush --version --status</div>
+                  <div className="text-zinc-300">
+                    &gt; Khush Amin | Software Engineer & OCI Architect
+                  </div>
+                  <div className="text-emerald-400">
+                    &gt; DMU Computer Science: 1st Class Honours (70%)
+                  </div>
+                </div>
+
+                {/* Tech Stack Command Matrix */}
+                <div className="space-y-2">
+                  <div className="text-zinc-400 uppercase tracking-wider font-semibold text-[10px]">
+                    // CORE SYSTEM STACK & CERTIFICATIONS
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-zinc-200">
+                    <div className="p-2.5 rounded-lg bg-zinc-900/60 border border-purple-900/30 flex items-center gap-2">
+                      <Code2 className="w-4 h-4 text-purple-400 shrink-0" />
+                      <span>C# / ASP.NET</span>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-zinc-900/60 border border-emerald-900/30 flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>OCI Cloud Gen AI</span>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-zinc-900/60 border border-purple-900/30 flex items-center gap-2">
+                      <Database className="w-4 h-4 text-purple-400 shrink-0" />
+                      <span>SQL Server / 3NF</span>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-zinc-900/60 border border-emerald-900/30 flex items-center gap-2">
+                      <Cpu className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>Active Directory</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Academic Mark Breakdown */}
+                <div className="p-4 rounded-xl bg-gradient-to-r from-purple-950/40 to-emerald-950/40 border border-purple-800/40 space-y-2">
+                  <div className="flex items-center justify-between text-zinc-300">
+                    <span>Enterprise Staff System:</span>
+                    <span className="text-purple-300 font-bold">82% Mark (1st Class)</span>
+                  </div>
+                  <div className="flex items-center justify-between text-zinc-300">
+                    <span>Capstone Multi-Tier App:</span>
+                    <span className="text-emerald-300 font-bold">78% Mark (100% Specs)</span>
+                  </div>
+                  <div className="flex items-center justify-between text-zinc-300">
+                    <span>Active Workstation IT Support:</span>
+                    <span className="text-purple-300 font-bold">50+ Enterprise Nodes</span>
+                  </div>
+                </div>
+
+                {/* Status Command Line Footer */}
+                <div className="pt-2 text-zinc-400 flex items-center justify-between">
+                  <span className="text-[11px] text-zinc-400">$ system_status --ready</span>
+                  <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold">
+                    AVAILABLE FOR HIRE
+                  </span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
 
