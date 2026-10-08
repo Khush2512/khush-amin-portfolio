@@ -164,22 +164,10 @@ export default function CvModal({ isOpen, onClose, defaultRole = "net" }: CvModa
             >
               Close
             </button>
-            
-            {/* View CV inline in browser */}
-            <a
-              href={downloadFile}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs font-semibold text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-500 transition-all shadow-md"
-            >
-              <FileText className="w-4 h-4 text-purple-400" />
-              <span>View CV in Browser</span>
-            </a>
 
-            {/* Direct Download PDF */}
+            {/* Direct Native HTML Stream Anchor */}
             <a
               href={downloadFile}
-              download={activeTab === "net" ? "Khush_Amin_CV_Software_Engineer.pdf" : "Khush_Amin_CV_Cloud_Infrastructure.pdf"}
               target="_blank"
               rel="noopener noreferrer"
               className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs font-bold text-white shadow-lg transition-all ${
@@ -189,7 +177,7 @@ export default function CvModal({ isOpen, onClose, defaultRole = "net" }: CvModa
               }`}
             >
               <Download className="w-4 h-4" />
-              <span>Download PDF</span>
+              <span>View & Download CV</span>
             </a>
           </div>
         </motion.div>

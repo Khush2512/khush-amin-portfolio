@@ -100,22 +100,26 @@ export default function Hero3D() {
                   <ArrowRight className="w-4 h-4" />
                 </a>
 
-                {/* Dynamic Dual CV Buttons */}
-                <button
-                  onClick={() => openCvModal("net")}
-                  className="flex items-center gap-2 px-4 py-3.5 rounded-xl font-mono text-xs font-semibold text-purple-200 bg-purple-950/60 hover:bg-purple-900/80 border border-purple-800/80 transition-all"
+                {/* Dynamic Dual CV Links (Native HTML Anchors) */}
+                <a
+                  href="/Khush_Amin_CV_new.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-3.5 rounded-xl font-mono text-xs font-semibold text-purple-200 bg-purple-950/60 hover:bg-purple-900/80 border border-purple-800/80 transition-all shadow-lg shadow-purple-950/30"
                 >
                   <Code2 className="w-4 h-4 text-purple-400" />
-                  <span>CV (Software Engineer)</span>
-                </button>
+                  <span>View & Download CV (.NET)</span>
+                </a>
 
-                <button
-                  onClick={() => openCvModal("cloud")}
-                  className="flex items-center gap-2 px-4 py-3.5 rounded-xl font-mono text-xs font-semibold text-emerald-200 bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-800/80 transition-all"
+                <a
+                  href="/Khush_Amin_Cloud_Infrastructure_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-3.5 rounded-xl font-mono text-xs font-semibold text-emerald-200 bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-800/80 transition-all shadow-lg shadow-emerald-950/30"
                 >
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>CV (Cloud & Infrastructure)</span>
-                </button>
+                  <span>View & Download CV (Cloud)</span>
+                </a>
               </div>
 
               {/* Metrics Bar */}

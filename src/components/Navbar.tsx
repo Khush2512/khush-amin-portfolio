@@ -75,25 +75,29 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Action Dual CV Download Buttons */}
+          {/* Action Dual CV Download Links (Native HTML Anchors) */}
           <div className="hidden sm:flex items-center gap-2.5">
-            <button
-              onClick={() => openCvModal("net")}
+            <a
+              href="/Khush_Amin_CV_new.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold text-purple-300 bg-purple-950/60 hover:bg-purple-900/80 border border-purple-800/80 hover:border-purple-500 transition-all shadow-sm"
-              title="Download CV (Software Engineer)"
+              title="View & Download Software Engineer CV"
             >
               <Code2 className="w-3.5 h-3.5 text-purple-400" />
-              <span>CV (Software Engineer)</span>
-            </button>
+              <span>View & Download CV</span>
+            </a>
 
-            <button
-              onClick={() => openCvModal("cloud")}
+            <a
+              href="/Khush_Amin_Cloud_Infrastructure_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-800/80 hover:border-emerald-500 transition-all shadow-sm"
-              title="Download CV (Cloud & Infrastructure)"
+              title="View & Download Cloud & Infrastructure CV"
             >
               <Shield className="w-3.5 h-3.5 text-emerald-400" />
-              <span>CV (Cloud & Infra)</span>
-            </button>
+              <span>Cloud & Infra CV</span>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -131,20 +135,26 @@ export default function Navbar() {
               </div>
 
               <div className="pt-4 border-t border-zinc-800 flex flex-col gap-3">
-                <button
-                  onClick={() => openCvModal("net")}
+                <a
+                  href="/Khush_Amin_CV_new.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl text-xs font-mono font-semibold text-purple-200 bg-purple-950/60 border border-purple-800"
                 >
                   <Code2 className="w-4 h-4 text-purple-400" />
-                  <span>Download CV (Software Engineer)</span>
-                </button>
-                <button
-                  onClick={() => openCvModal("cloud")}
+                  <span>View & Download CV (Software Engineer)</span>
+                </a>
+                <a
+                  href="/Khush_Amin_Cloud_Infrastructure_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl text-xs font-mono font-semibold text-emerald-200 bg-emerald-950/60 border border-emerald-800"
                 >
                   <Shield className="w-4 h-4 text-emerald-400" />
-                  <span>Download CV (Cloud & Infrastructure)</span>
-                </button>
+                  <span>View & Download CV (Cloud & Infrastructure)</span>
+                </a>
               </div>
             </div>
           </motion.div>
