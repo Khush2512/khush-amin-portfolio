@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { SKILL_CATEGORIES } from "@/data/portfolioData";
 import {
@@ -22,10 +22,8 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 export default function Competencies() {
-  const [activeFilter, setActiveFilter] = useState<string>("all");
-
   return (
-    <section id="competencies" className="py-24 relative bg-zinc-950/60 border-t border-b border-zinc-900">
+    <section id="competencies" className="py-24 relative bg-zinc-950/60 border-t border-b border-zinc-900 scroll-mt-24">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-purple-950/15 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-950/15 rounded-full blur-[130px] pointer-events-none" />
@@ -42,7 +40,7 @@ export default function Competencies() {
             Core Engineering <span className="gradient-text-purple-emerald">Competencies</span>
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 font-sans leading-relaxed">
-            Categorized technical stack spanning enterprise .NET software engineering, relational database optimization, commercial system administration, and Oracle Cloud architecture.
+            Categorized technical stack spanning enterprise .NET software engineering, relational database optimization (3NF), commercial system administration, and Oracle Cloud architecture.
           </p>
         </div>
 
@@ -55,7 +53,7 @@ export default function Competencies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-8 relative overflow-hidden group"
+              className="glass-panel glass-panel-hover rounded-3xl p-6 sm:p-8 relative overflow-hidden group"
             >
               {/* Top Accent Bar */}
               <div
@@ -81,7 +79,7 @@ export default function Competencies() {
                 </div>
               </div>
 
-              {/* Skills Tag Cloud / Pills Matrix */}
+              {/* Skills Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {category.skills.map((skill) => (
                   <div
@@ -119,8 +117,8 @@ export default function Competencies() {
           ))}
         </div>
 
-        {/* Academic Excellence Highlight Footer Banner */}
-        <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-purple-950/40 via-zinc-900/60 to-emerald-950/40 border border-purple-900/40 flex flex-col sm:flex-row items-center justify-between gap-6">
+        {/* Academic Excellence Banner */}
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-purple-950/40 via-zinc-900/60 to-emerald-950/40 border border-purple-900/40 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center shrink-0">
               <Sparkles className="w-6 h-6 text-purple-400" />
@@ -130,14 +128,14 @@ export default function Competencies() {
                 Academic Distinction — De Montfort University
               </h4>
               <p className="text-xs text-zinc-400 font-sans mt-0.5">
-                BSc (Hons) Computer Science degree completed with First Class Honours (70% overall average) & 82% in ASP.NET enterprise development.
+                BSc (Hons) Computer Science degree completed with First Class Honours (70% overall average) & 82% in ASP.NET Core enterprise development.
               </p>
             </div>
           </div>
 
           <a
             href="#projects"
-            className="px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-purple-500 text-xs font-mono font-semibold text-zinc-200 hover:text-white transition-all shrink-0"
+            className="px-5 py-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-purple-500 text-xs font-mono font-semibold text-zinc-200 hover:text-white transition-all shrink-0"
           >
             VERIFY CASE STUDIES &rarr;
           </a>

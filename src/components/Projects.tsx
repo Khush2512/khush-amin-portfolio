@@ -3,12 +3,12 @@
 import React from "react";
 import { PROJECTS } from "@/data/portfolioData";
 import ProjectCard from "./ProjectCard";
-import { Code2, FolderGit2 } from "lucide-react";
+import { FolderGit2 } from "lucide-react";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 relative">
-      {/* Background glow */}
+    <section id="projects" className="py-24 relative scroll-mt-24">
+      {/* Background ambient lighting */}
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[400px] bg-purple-950/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[500px] h-[300px] bg-emerald-950/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -23,7 +23,7 @@ export default function Projects() {
             Featured <span className="gradient-text-purple-emerald">Software Projects</span>
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 font-sans leading-relaxed">
-            In-depth engineering breakdown of software platforms built during De Montfort University degree coursework and full-stack enterprise developments.
+            In-depth technical deep-dives into enterprise platforms built during De Montfort University degree coursework and full-stack software development.
           </p>
         </div>
 

@@ -1,3 +1,12 @@
+export interface TechnicalDeepDive {
+  clientLayer: string;
+  apiLayer: string;
+  databaseLayer: string;
+  securityStrategy: string;
+  normalization: string;
+  acidCompliance: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -8,12 +17,11 @@ export interface Project {
   statLabel?: string;
   description: string;
   keyHighlights: string[];
-  architectureNotes?: string;
+  deepDive: TechnicalDeepDive;
   featured: boolean;
   links?: {
     demo?: string;
     github?: string;
-    caseStudy?: string;
   };
 }
 
@@ -35,21 +43,22 @@ export interface ExperienceItem {
   title: string;
   company: string;
   location: string;
-  type: "Commercial" | "Retail & Operations" | "Education";
+  type: "Commercial IT" | "UK Operations";
   description: string;
   responsibilities: string[];
   technologies: string[];
-  badge?: string;
+  badge: string;
+  uptimeMetric?: string;
 }
 
 export interface Certification {
   id: string;
   title: string;
-  issuer: "Oracle Cloud" | "De Montfort University" | "Industry Standard";
+  issuer: "Oracle University" | "De Montfort University";
   date: string;
-  credentialId?: string;
   badgeText: string;
   description: string;
   skillsVerified: string[];
+  verificationUrl: string;
   gradient: string;
 }

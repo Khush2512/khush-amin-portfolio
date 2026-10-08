@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Menu, X, Terminal, Shield, Code2 } from "lucide-react";
+import { Menu, X, Terminal, Shield, Code2 } from "lucide-react";
 import CvModal from "./CvModal";
 
 const NAV_LINKS = [
@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { name: "Competencies", href: "#competencies" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
-  { name: "Certifications", href: "#certifications" },
+  { name: "Certifications", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -39,15 +39,15 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "backdrop-blur-md bg-black/40 border-b border-zinc-800/60 shadow-xl shadow-purple-950/5"
-            : "backdrop-blur-md bg-black/20 border-b border-zinc-800/40"
+            ? "backdrop-blur-md bg-black/60 border-b border-zinc-800/80 shadow-xl shadow-purple-950/10"
+            : "backdrop-blur-md bg-black/30 border-b border-zinc-800/40"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          {/* Monospace Logo Brand */}
+          {/* Monospace Brand Logo */}
           <a
             href="#"
-            className="flex items-center gap-2 group focus:outline-none"
+            className="flex items-center gap-2.5 group focus:outline-none"
           >
             <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:border-purple-500/50 group-hover:bg-purple-950/30 transition-all">
               <Terminal className="w-5 h-5 text-purple-400 group-hover:text-emerald-400 transition-colors" />
@@ -75,24 +75,24 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Action CV Buttons */}
+          {/* Action Dual CV Download Buttons */}
           <div className="hidden sm:flex items-center gap-2.5">
             <button
               onClick={() => openCvModal("net")}
-              className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold text-purple-300 bg-purple-950/50 hover:bg-purple-900/60 border border-purple-800/60 hover:border-purple-500 transition-all shadow-sm"
-              title="Download Software Engineer / .NET CV"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold text-purple-300 bg-purple-950/60 hover:bg-purple-900/80 border border-purple-800/80 hover:border-purple-500 transition-all shadow-sm"
+              title="Download CV (Software Engineer)"
             >
               <Code2 className="w-3.5 h-3.5 text-purple-400" />
-              <span>CV (.NET / SWE)</span>
+              <span>CV (Software Engineer)</span>
             </button>
 
             <button
               onClick={() => openCvModal("cloud")}
-              className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold text-emerald-300 bg-emerald-950/50 hover:bg-emerald-900/60 border border-emerald-800/60 hover:border-emerald-500 transition-all shadow-sm"
-              title="Download Cloud / Infra Specialist CV"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-800/80 hover:border-emerald-500 transition-all shadow-sm"
+              title="Download CV (Cloud & Infrastructure)"
             >
               <Shield className="w-3.5 h-3.5 text-emerald-400" />
-              <span>CV (Cloud / Infra)</span>
+              <span>CV (Cloud & Infra)</span>
             </button>
           </div>
 
@@ -107,7 +107,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -136,14 +136,14 @@ export default function Navbar() {
                   className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl text-xs font-mono font-semibold text-purple-200 bg-purple-950/60 border border-purple-800"
                 >
                   <Code2 className="w-4 h-4 text-purple-400" />
-                  <span>Download CV (.NET / SWE)</span>
+                  <span>Download CV (Software Engineer)</span>
                 </button>
                 <button
                   onClick={() => openCvModal("cloud")}
                   className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl text-xs font-mono font-semibold text-emerald-200 bg-emerald-950/60 border border-emerald-800"
                 >
                   <Shield className="w-4 h-4 text-emerald-400" />
-                  <span>Download CV (Cloud / Infra)</span>
+                  <span>Download CV (Cloud & Infrastructure)</span>
                 </button>
               </div>
             </div>
