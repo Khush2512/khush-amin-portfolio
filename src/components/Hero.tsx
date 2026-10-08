@@ -10,17 +10,18 @@ import {
   Phone,
   ShieldCheck,
   Code2,
-  Terminal,
   ChevronDown,
   Camera,
   Box,
+  Sparkles,
 } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 import SplineCanvas from "./SplineCanvas";
 import HeroPhoto from "./HeroPhoto";
+import Tripo3DCanvas from "./Tripo3DCanvas";
 
 export default function Hero() {
-  const [viewMode, setViewMode] = useState<"photo" | "spline">("photo");
+  const [viewMode, setViewMode] = useState<"tripo" | "photo" | "spline">("tripo");
 
   return (
     <section id="about" className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
@@ -119,7 +120,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: 3D Visual & View Switcher */}
+          {/* Right Column: Interactive 3D Model & View Switcher */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -127,33 +128,46 @@ export default function Hero() {
             className="lg:col-span-5 relative"
           >
             {/* Display Switcher Toggle */}
-            <div className="flex items-center justify-center gap-2 mb-4 bg-zinc-900/80 p-1.5 rounded-2xl border border-zinc-800 max-w-xs mx-auto">
+            <div className="flex items-center justify-center gap-1.5 mb-4 bg-zinc-900/90 p-1.5 rounded-2xl border border-zinc-800 max-w-sm mx-auto shadow-lg">
               <button
-                onClick={() => setViewMode("photo")}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
-                  viewMode === "photo"
+                onClick={() => setViewMode("tripo")}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
+                  viewMode === "tripo"
                     ? "bg-purple-600 text-white shadow-lg shadow-purple-900/30"
                     : "text-zinc-400 hover:text-zinc-200"
                 }`}
               >
-                <Camera className="w-3.5 h-3.5" />
-                <span>3D Photo Card</span>
+                <Sparkles className="w-3.5 h-3.5 text-purple-300" />
+                <span>Tripo3D Model</span>
               </button>
               <button
-                onClick={() => setViewMode("spline")}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
-                  viewMode === "spline"
+                onClick={() => setViewMode("photo")}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
+                  viewMode === "photo"
                     ? "bg-emerald-600 text-white shadow-lg shadow-emerald-900/30"
                     : "text-zinc-400 hover:text-zinc-200"
                 }`}
               >
+                <Camera className="w-3.5 h-3.5" />
+                <span>Photo Card</span>
+              </button>
+              <button
+                onClick={() => setViewMode("spline")}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-semibold transition-all ${
+                  viewMode === "spline"
+                    ? "bg-indigo-600 text-white shadow-lg shadow-indigo-900/30"
+                    : "text-zinc-400 hover:text-zinc-200"
+                }`}
+              >
                 <Box className="w-3.5 h-3.5" />
-                <span>Spline 3D Scene</span>
+                <span>Spline Scene</span>
               </button>
             </div>
 
-            {/* Render Selected View */}
-            {viewMode === "photo" ? (
+            {/* Render Selected 3D View */}
+            {viewMode === "tripo" ? (
+              <Tripo3DCanvas modelUrl="https://studio.tripo3d.ai/3d-model/e45291e9-59e4-4bed-a46d-a9dc3718e650" />
+            ) : viewMode === "photo" ? (
               <HeroPhoto imageSrc="/khush-profile.png" name="Khush Amin" />
             ) : (
               <SplineCanvas sceneUrl="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
