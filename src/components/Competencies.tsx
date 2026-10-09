@@ -14,7 +14,7 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 
 export default function Competencies() {
   return (
-    <section id="competencies" className="py-24 relative border-t border-zinc-800/80 scroll-mt-24">
+    <section id="competencies" className="py-24 relative border-t border-white/10 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Minimalist Section Header */}
         <div className="space-y-2 mb-16">
@@ -24,12 +24,12 @@ export default function Competencies() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-sans tracking-tight">
             Core Engineering Stack & Cloud Architecture
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 font-sans max-w-2xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-300 font-sans max-w-2xl leading-relaxed">
             Categorized skills across enterprise .NET development, SQL Server database design (3NF), Active Directory sysadmin, and Oracle Cloud services.
           </p>
         </div>
 
-        {/* Minimalist Grid */}
+        {/* iOS Frosted Glass Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {SKILL_CATEGORIES.map((category, index) => (
             <motion.div
@@ -38,10 +38,10 @@ export default function Competencies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-zinc-900/30 border border-zinc-800/80 hover:border-zinc-700 transition duration-300 rounded-2xl p-6 sm:p-8 space-y-6"
+              className="p-8 rounded-3xl bg-zinc-900/35 backdrop-blur-xl backdrop-saturate-150 border border-white/10 hover:border-white/20 hover:bg-zinc-900/50 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.25)] space-y-6"
             >
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800">
+                <div className="p-3 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10">
                   {ICON_MAP[category.iconName] || <Layers className="w-5 h-5 text-purple-400" />}
                 </div>
                 <div>
@@ -56,13 +56,13 @@ export default function Competencies() {
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center justify-between p-2.5 rounded-xl bg-zinc-900/40 border border-zinc-800/60 hover:border-zinc-700 transition-colors"
+                    className="flex items-center justify-between p-3 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-white/20 transition-colors"
                   >
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-purple-400 shrink-0" />
                       <span className="text-xs font-mono text-zinc-200">{skill.name}</span>
                     </div>
-                    <span className="text-[10px] font-mono text-zinc-400 bg-zinc-800/60 px-2 py-0.5 rounded">
+                    <span className="text-[10px] font-mono text-zinc-300 px-2 py-0.5 rounded-full bg-white/[0.08]">
                       {skill.level}
                     </span>
                   </div>

@@ -30,16 +30,16 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: index * 0.1 }}
         onClick={() => setModalOpen(true)}
-        className={`${bentoSpan} bg-zinc-900/30 border border-zinc-800/80 hover:border-zinc-700 transition duration-300 rounded-2xl p-6 sm:p-8 flex flex-col justify-between group cursor-pointer relative overflow-hidden`}
+        className={`${bentoSpan} p-8 rounded-3xl bg-zinc-900/35 backdrop-blur-xl backdrop-saturate-150 border border-white/10 hover:border-white/20 hover:bg-zinc-900/50 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.25)] flex flex-col justify-between group cursor-pointer relative overflow-hidden`}
       >
         <div>
           {/* Upper Corner Monospace Mark */}
           <div className="flex items-center justify-between gap-4 mb-4">
-            <span className="font-mono text-xs text-purple-400 tracking-wide font-medium">
+            <span className="font-mono text-xs text-purple-400 tracking-wide font-medium px-3 py-1 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/10">
               {project.category.toUpperCase()}
             </span>
             {project.stat && (
-              <span className="font-mono text-xs text-emerald-400 bg-emerald-950/40 border border-emerald-800/50 px-2.5 py-0.5 rounded-full font-semibold">
+              <span className="font-mono text-xs text-emerald-300 bg-emerald-950/40 backdrop-blur-md border border-emerald-500/30 px-3 py-1 rounded-full font-semibold">
                 {project.stat} • {project.statLabel?.includes("First Class") ? "1st Class" : project.statLabel || "Honours"}
               </span>
             )}
@@ -48,11 +48,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           {/* Title */}
           <h3 className="text-xl sm:text-2xl font-bold text-white font-sans group-hover:text-purple-300 transition-colors mb-3 flex items-center justify-between">
             <span>{project.title}</span>
-            <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-2" />
+            <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-2" />
           </h3>
 
           {/* Description */}
-          <p className="text-xs sm:text-sm text-zinc-400 font-sans leading-relaxed mb-6">
+          <p className="text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed mb-6">
             {project.description}
           </p>
 
@@ -67,13 +67,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
         </div>
 
-        {/* Footer Minimalist Tech Tags */}
-        <div className="pt-4 border-t border-zinc-800/60 flex items-center justify-between gap-3">
+        {/* Footer Minimalist iOS Glass Tech Tags */}
+        <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
           <div className="flex flex-wrap gap-1.5">
             {project.badges.map((badge) => (
               <span
                 key={badge}
-                className="text-xs font-mono text-zinc-400 bg-zinc-800/50 px-2.5 py-1 rounded-md"
+                className="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.06] backdrop-blur-md border border-white/10 text-zinc-300"
               >
                 {badge}
               </span>
@@ -81,7 +81,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           <span className="text-xs font-mono text-purple-400 group-hover:underline flex items-center gap-1 shrink-0">
-            <Layers className="w-3 h-3" />
+            <Layers className="w-3.5 h-3.5" />
             <span>Deep-Dive</span>
           </span>
         </div>
