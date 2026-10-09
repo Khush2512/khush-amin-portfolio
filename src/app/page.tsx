@@ -8,11 +8,11 @@ import InteractiveParticles from "@/components/InteractiveParticles";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#070709] text-zinc-100 relative overflow-hidden">
-      {/* Interactive Particle Backdrop */}
+    <main className="min-h-screen bg-[#09090b] text-zinc-100 relative overflow-hidden selection:bg-purple-900/50 selection:text-purple-200">
+      {/* Interactive Subtle Background Backdrop */}
       <InteractiveParticles />
 
-      {/* Main Recruiter-Ready Showcase Sections */}
+      {/* Main Recruiter-Ready Minimalist Showcase Sections */}
       <div className="relative z-10">
         <Navbar />
         <Hero3D />
